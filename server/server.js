@@ -35,11 +35,13 @@ app.use(
       if(!origin) return callback(null, true);
       
       const allowedOrigins = [
-        process.env.CLIENT_URL || "http://localhost:5173", 
+        "https://mern-stack-ecommerce-five.vercel.app", // Your deployed frontend
+        process.env.CLIENT_URL, // For local dev, if you set it in a .env file
+        "http://localhost:5173",
         "http://localhost:5175"
       ];
       
-      if(allowedOrigins.indexOf(origin) !== -1) {
+      if(allowedOrigins.includes(origin)) {
         callback(null, true);
       } else {
         console.log('CORS blocked request from:', origin);
