@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { createNewOrder, verifyPayment } from "@/store/shop/order-slice";
 import { useToast } from "@/components/ui/use-toast";
-
+import { Shield, RefreshCcw, Bell } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 function ShoppingCheckout() {
@@ -133,7 +133,7 @@ function ShoppingCheckout() {
   return (
     <div className="flex flex-col">
       <div className="relative h-[300px] w-full overflow-hidden">
-        <img src={img} className="h-full w-full object-cover object-center" />
+        <img src={img} className="h-full w-full object-cover object-center" alt="Checkout banner" />
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-5 p-5">
         <Address
@@ -158,6 +158,54 @@ function ShoppingCheckout() {
                 ? "Processing Razorpay Payment..."
                 : "Checkout with Razorpay"}
             </Button>
+          </div>
+        </div>
+      </div>
+      
+      {/* Enhanced Policies Section - Full Width */}
+      <div className="mt-8 px-5 pb-10">
+        <div className="bg-gradient-to-r from-primary/5 to-primary/10 rounded-xl p-6 shadow-sm border border-primary/20">
+          <h3 className="text-xl font-bold mb-6 text-center text-gray-800">Our Customer Policies</h3>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Sale Updates Policy */}
+            <div className="bg-white rounded-lg p-5 shadow-sm hover:shadow-md transition-shadow group">
+              <div className="flex items-center justify-center mb-4">
+                <div className="bg-primary/10 p-3 rounded-full group-hover:bg-primary/20 transition-colors">
+                  <Bell className="h-7 w-7 text-primary" />
+                </div>
+              </div>
+              <h4 className="text-base font-semibold text-center mb-2">Sale Updates</h4>
+              <p className="text-center text-gray-600">
+                You'll be notified when products in your cart or wishlist go on sale, so you never miss out on savings.
+              </p>
+            </div>
+            
+            {/* Return Policy */}
+            <div className="bg-white rounded-lg p-5 shadow-sm hover:shadow-md transition-shadow group">
+              <div className="flex items-center justify-center mb-4">
+                <div className="bg-primary/10 p-3 rounded-full group-hover:bg-primary/20 transition-colors">
+                  <RefreshCcw className="h-7 w-7 text-primary" />
+                </div>
+              </div>
+              <h4 className="text-base font-semibold text-center mb-2">Easy Returns</h4>
+              <p className="text-center text-gray-600">
+                Hassle-free returns within 10-14 days of delivery. We want you to be completely satisfied with your purchase.
+              </p>
+            </div>
+            
+            {/* Secure Payment */}
+            <div className="bg-white rounded-lg p-5 shadow-sm hover:shadow-md transition-shadow group">
+              <div className="flex items-center justify-center mb-4">
+                <div className="bg-primary/10 p-3 rounded-full group-hover:bg-primary/20 transition-colors">
+                  <Shield className="h-7 w-7 text-primary" />
+                </div>
+              </div>
+              <h4 className="text-base font-semibold text-center mb-2">100% Secure Payment</h4>
+              <p className="text-center text-gray-600">
+                Your transaction is protected with advanced encryption and comprehensive fraud protection measures.
+              </p>
+            </div>
           </div>
         </div>
       </div>
