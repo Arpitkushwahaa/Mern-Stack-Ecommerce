@@ -222,6 +222,6 @@ export const addressFormControls = [
     placeholder: "Enter any additional notes",
   },
 ];
-export const API_URL = process.env.NODE_ENV === 'production' 
-  ? 'https://mern-stack-ecommerce-1-g9vq.onrender.com' 
+export const API_URL = import.meta.env.MODE === 'production'
+  ? import.meta.env.VITE_API_URL
   : 'http://localhost:5000';
