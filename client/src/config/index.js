@@ -222,3 +222,10 @@ export const addressFormControls = [
     placeholder: "Enter any additional notes",
   },
 ];
+
+export const API_URL = import.meta.env.VITE_API_BASE_URL;
+
+export const getApiUrl = (endpoint) => {
+  const baseUrl = import.meta.env.VITE_API_BASE_URL;
+  return `${baseUrl}${endpoint}`;
+};
